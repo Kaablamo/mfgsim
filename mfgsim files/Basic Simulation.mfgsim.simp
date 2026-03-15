@@ -1,0 +1,146 @@
+{
+  "version": "1.0",
+  "meta": {
+    "name": "Basic Simulation",
+    "modified_at": "2026-02-23T15:20:45.179Z"
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "type": "source",
+        "position": {
+          "x": -272,
+          "y": 208
+        },
+        "data": {
+          "label": "Source",
+          "inter_arrival": {
+            "type": "fixed",
+            "value": 15,
+            "mean": null,
+            "std": null
+          },
+          "entity_type": "Entity",
+          "batch_size": 10,
+          "max_entities": null
+        }
+      },
+      {
+        "id": "node_6",
+        "type": "storage",
+        "position": {
+          "x": -96,
+          "y": 208
+        },
+        "data": {
+          "label": "Input Storage",
+          "priority": "medium",
+          "max_capacity": 16
+        }
+      },
+      {
+        "id": "node_2",
+        "type": "process",
+        "position": {
+          "x": 96,
+          "y": 208
+        },
+        "data": {
+          "label": "Process Part",
+          "duration": {
+            "type": "fixed",
+            "value": 1
+          },
+          "capacity": 1,
+          "resource_performs_process": true,
+          "priority": "medium",
+          "resource_id": ""
+        }
+      },
+      {
+        "id": "node_7",
+        "type": "storage",
+        "position": {
+          "x": 304,
+          "y": 208
+        },
+        "data": {
+          "label": "Output Storage",
+          "priority": "medium",
+          "max_capacity": 16
+        }
+      },
+      {
+        "id": "node_3",
+        "type": "sink",
+        "position": {
+          "x": 480,
+          "y": 208
+        },
+        "data": {
+          "label": "Sink"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge_1771859913887",
+        "source": "node_6",
+        "target": "node_2"
+      },
+      {
+        "id": "edge_1771859931341",
+        "source": "node_7",
+        "target": "node_3"
+      },
+      {
+        "id": "edge_1771859932631",
+        "source": "node_2",
+        "target": "node_7"
+      },
+      {
+        "id": "edge_1771859934145",
+        "source": "node_1",
+        "target": "node_6"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "res_1771859717721",
+      "name": "Robot",
+      "quantity": 1
+    }
+  ],
+  "sim_config": {
+    "duration": 480,
+    "warmup_period": 0,
+    "tick_interval": 1,
+    "rng_seed": ""
+  },
+  "travel_times": {
+    "res_1771859717721": {
+      "node_5": {
+        "node_2": 0.25,
+        "node_4": 0
+      },
+      "node_2": {
+        "node_5": 0.25,
+        "node_4": 0.25,
+        "node_6": 0.25,
+        "node_7": 0.25
+      },
+      "node_4": {
+        "node_5": 0,
+        "node_2": 0.25
+      },
+      "node_6": {
+        "node_2": 0.25
+      },
+      "node_7": {
+        "node_2": 0.25
+      }
+    }
+  }
+}

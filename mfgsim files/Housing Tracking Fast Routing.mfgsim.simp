@@ -1,0 +1,421 @@
+{
+  "version": "1.0",
+  "meta": {
+    "name": "Housing Tracking",
+    "modified_at": "2026-02-23T00:06:49.060Z"
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "type": "source",
+        "position": {
+          "x": 64,
+          "y": 144
+        },
+        "data": {
+          "label": "Housings In",
+          "inter_arrival": {
+            "type": "fixed",
+            "value": 20
+          },
+          "entity_type": "Part",
+          "max_entities": 64,
+          "batch_size": 64
+        }
+      },
+      {
+        "id": "node_2",
+        "type": "process",
+        "position": {
+          "x": 256,
+          "y": 144
+        },
+        "data": {
+          "label": "Clean Part",
+          "duration": {
+            "type": "normal",
+            "value": 1,
+            "mean": 6.1,
+            "std": 0.4
+          },
+          "capacity": 1,
+          "resource_performs_process": true,
+          "resource_id": "",
+          "priority": "medium",
+          "max_outfeed": 8
+        }
+      },
+      {
+        "id": "node_11",
+        "type": "storage",
+        "position": {
+          "x": 464,
+          "y": 32
+        },
+        "data": {
+          "label": "Machine 1 Part Storage",
+          "priority": "high",
+          "max_capacity": 2
+        }
+      },
+      {
+        "id": "node_12",
+        "type": "storage",
+        "position": {
+          "x": 464,
+          "y": 288
+        },
+        "data": {
+          "label": "Machine 2 Part Storage",
+          "priority": "high",
+          "max_capacity": 2
+        }
+      },
+      {
+        "id": "node_7",
+        "type": "process",
+        "position": {
+          "x": 688,
+          "y": 80
+        },
+        "data": {
+          "label": "Machine 1 Process Part",
+          "duration": {
+            "type": "fixed",
+            "value": 20,
+            "mean": 30,
+            "std": 0.1
+          },
+          "capacity": 1,
+          "resource_performs_process": true,
+          "resource_id": "",
+          "batch_size": 2,
+          "min_batch_size": 2,
+          "priority": "bottleneck",
+          "max_infeed": 0
+        }
+      },
+      {
+        "id": "node_8",
+        "type": "process",
+        "position": {
+          "x": 688,
+          "y": 240
+        },
+        "data": {
+          "label": "Machine 2 Process Part",
+          "duration": {
+            "type": "fixed",
+            "value": 20,
+            "mean": 30,
+            "std": 0.1
+          },
+          "capacity": 1,
+          "resource_performs_process": true,
+          "resource_id": "",
+          "batch_size": 2,
+          "min_batch_size": 2,
+          "priority": "bottleneck",
+          "max_infeed": 0
+        }
+      },
+      {
+        "id": "node_13",
+        "type": "storage",
+        "position": {
+          "x": 912,
+          "y": 16
+        },
+        "data": {
+          "label": "Machine 1 Outfeed Storage",
+          "priority": "high",
+          "max_capacity": 2
+        }
+      },
+      {
+        "id": "node_14",
+        "type": "storage",
+        "position": {
+          "x": 912,
+          "y": 336
+        },
+        "data": {
+          "label": "Machine 2 Outfeed Storage",
+          "priority": "high",
+          "max_capacity": 2
+        }
+      },
+      {
+        "id": "node_9",
+        "type": "process",
+        "position": {
+          "x": 1168,
+          "y": 240
+        },
+        "data": {
+          "label": "Housing Outfeed",
+          "duration": {
+            "type": "fixed",
+            "value": 8
+          },
+          "capacity": 1,
+          "resource_performs_process": true,
+          "resource_id": "",
+          "priority": "medium",
+          "max_infeed": 0
+        }
+      },
+      {
+        "id": "node_15",
+        "type": "process",
+        "position": {
+          "x": 1168,
+          "y": 80
+        },
+        "data": {
+          "label": "Housing Outfeed",
+          "duration": {
+            "type": "fixed",
+            "value": 8
+          },
+          "capacity": 1,
+          "resource_performs_process": true,
+          "resource_id": "",
+          "priority": "medium",
+          "max_infeed": 0
+        }
+      },
+      {
+        "id": "node_10",
+        "type": "sink",
+        "position": {
+          "x": 1376,
+          "y": 144
+        },
+        "data": {
+          "label": "Sink"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge_1771707678580",
+        "source": "node_7",
+        "target": "node_9",
+        "resource_id": "res_1771706852316"
+      },
+      {
+        "id": "edge_1771707682864",
+        "source": "node_8",
+        "target": "node_9",
+        "resource_id": "res_1771706852316"
+      },
+      {
+        "id": "edge_1771707727076",
+        "source": "node_9",
+        "target": "node_10"
+      },
+      {
+        "id": "edge_1771727371100",
+        "source": "node_2",
+        "target": "node_7",
+        "resource_id": "res_1771706852316"
+      },
+      {
+        "id": "edge_1771727373136",
+        "source": "node_2",
+        "target": "node_8",
+        "resource_id": "res_1771706852316"
+      },
+      {
+        "id": "edge_1771783686292",
+        "source": "node_11",
+        "target": "node_7",
+        "resource_id": "res_1771706852316"
+      },
+      {
+        "id": "edge_1771783710011",
+        "source": "node_12",
+        "target": "node_8",
+        "resource_id": "res_1771706852316"
+      },
+      {
+        "id": "edge_1771783712874",
+        "source": "node_2",
+        "target": "node_12",
+        "resource_id": "res_1771706852316"
+      },
+      {
+        "id": "edge_1771783714529",
+        "source": "node_2",
+        "target": "node_11",
+        "resource_id": "res_1771706852316"
+      },
+      {
+        "id": "edge_1771788170912",
+        "source": "node_7",
+        "target": "node_13",
+        "resource_id": "res_1771706852316"
+      },
+      {
+        "id": "edge_1771788172633",
+        "source": "node_8",
+        "target": "node_14",
+        "resource_id": "res_1771706852316"
+      },
+      {
+        "id": "edge_1771788174353",
+        "source": "node_13",
+        "target": "node_9",
+        "resource_id": "res_1771706852316"
+      },
+      {
+        "id": "edge_1771788176080",
+        "source": "node_14",
+        "target": "node_9",
+        "resource_id": "res_1771706852316"
+      },
+      {
+        "id": "edge_1771796011799",
+        "source": "node_1",
+        "target": "node_2"
+      },
+      {
+        "id": "edge_1771804858068",
+        "source": "node_7",
+        "target": "node_15"
+      },
+      {
+        "id": "edge_1771804870576",
+        "source": "node_8",
+        "target": "node_15"
+      },
+      {
+        "id": "edge_1771804872740",
+        "source": "node_13",
+        "target": "node_15"
+      },
+      {
+        "id": "edge_1771804876968",
+        "source": "node_14",
+        "target": "node_15"
+      },
+      {
+        "id": "edge_1771804881071",
+        "source": "node_15",
+        "target": "node_10"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "res_1771706852316",
+      "name": "Operator",
+      "quantity": 3
+    }
+  ],
+  "sim_config": {
+    "duration": 480,
+    "warmup_period": 0,
+    "tick_interval": 1
+  },
+  "travel_times": {
+    "res_1771706852316": {
+      "node_2": {
+        "node_3": 1,
+        "node_9": 0,
+        "node_4": 0,
+        "node_5": 1,
+        "node_7": 0.5,
+        "node_8": 0.5,
+        "node_11": 0.45,
+        "node_12": 0.45
+      },
+      "node_3": {
+        "node_2": 1,
+        "node_5": 0,
+        "node_4": 1,
+        "node_7": 0,
+        "node_8": 0,
+        "node_9": 0
+      },
+      "node_5": {
+        "node_3": 0,
+        "node_2": 1,
+        "node_4": 1,
+        "node_7": 0,
+        "node_8": 0,
+        "node_9": 1
+      },
+      "node_9": {
+        "node_2": 0,
+        "node_3": 0,
+        "node_4": 0,
+        "node_5": 1,
+        "node_7": 0.2,
+        "node_8": 0.2,
+        "node_13": 0.2,
+        "node_14": 0.2
+      },
+      "node_4": {
+        "node_3": 1,
+        "node_2": 0,
+        "node_5": 1,
+        "node_7": 1,
+        "node_8": 1,
+        "node_9": 0
+      },
+      "node_7": {
+        "node_2": 0.5,
+        "node_4": 1,
+        "node_5": 0,
+        "node_8": 0,
+        "node_3": 0,
+        "node_9": 0.2,
+        "node_11": 0.1,
+        "node_12": 0,
+        "node_13": 0.05,
+        "node_15": 0.2
+      },
+      "node_8": {
+        "node_2": 0.5,
+        "node_4": 1,
+        "node_5": 0,
+        "node_7": 0,
+        "node_3": 0,
+        "node_9": 0.2,
+        "node_11": 0,
+        "node_12": 0.1,
+        "node_14": 0.05,
+        "node_15": 0.2
+      },
+      "node_11": {
+        "node_2": 0.45,
+        "node_7": 0.1,
+        "node_8": 0
+      },
+      "node_12": {
+        "node_2": 0.45,
+        "node_7": 0,
+        "node_8": 0.1
+      },
+      "node_13": {
+        "node_7": 0.05,
+        "node_9": 0.2,
+        "node_15": 0.2
+      },
+      "node_14": {
+        "node_8": 0.05,
+        "node_9": 0.2,
+        "node_15": 0.2
+      },
+      "node_15": {
+        "node_7": 0.2,
+        "node_8": 0.2,
+        "node_13": 0.2,
+        "node_14": 0.2
+      }
+    }
+  }
+}
