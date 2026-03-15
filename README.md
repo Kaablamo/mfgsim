@@ -6,6 +6,23 @@ MfgSim is a discrete-event process simulation tool for manufacturing engineers. 
 
 This repository is licensed under Apache-2.0. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for third-party software notices.
 
+## Quick Start (App Download)
+
+If you just want to use MfgSim on Windows, download the latest packaged build from the GitHub Releases page:
+
+https://github.com/Kaablamo/mfgsim/releases/latest
+
+Basic usage:
+- Download the latest Windows release zip.
+- Extract the zip to a normal local folder.
+- Double-click `MfgSim.exe`.
+- MfgSim starts a local server and opens the application in your browser.
+
+Notes:
+- Closing the browser does not automatically stop the local server.
+- Use the shutdown option in the Settings menu when you want to fully close the packaged app.
+- Depending on your Windows security settings, an unsigned executable may trigger a warning on first launch.
+
 ## Quick Start (Development)
 
 ### Prerequisites

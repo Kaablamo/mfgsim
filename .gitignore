@@ -6,6 +6,7 @@ venv/
 .DS_Store
 *.zip
 *.exe
+release/SHA256SUMS.txt
 frontend/node_modules/
 frontend/dist/
 backend/app/static/
